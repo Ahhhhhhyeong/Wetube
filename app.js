@@ -16,8 +16,8 @@ app.use(helmet());
 app.use(morgan("dev"));
 
 app.use(routes.home, globalRouter);
-app.use(routes.home, userRouter);
-app.use(routes.home, videoRouter);
+app.use(routes.users, userRouter);
+app.use(routes.videos, videoRouter);
 
 export default app; //누군가 import 할 때 default
 

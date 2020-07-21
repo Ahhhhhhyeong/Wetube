@@ -7,7 +7,7 @@ const SEARCH = "/search";
 
 // Users
 const USERS = "/users";
-const USER_DETAIL = "/:id"; //:를 사용함으로 값이 변함을 인식
+const USER_DETAIL = "/:id";  //:를 사용함으로 값이 변함을 인식
 const EDIT_PROFILE = "/editProfile";
 const CHANGE_PASSWORD = "/changePassword";
 
