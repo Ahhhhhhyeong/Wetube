@@ -7,9 +7,9 @@ const SEARCH = "/search";
 
 // Users
 const USERS = "/users";
-const USER_DETAIL = "/:id";  //:를 사용함으로 값이 변함을 인식
 const EDIT_PROFILE = "/editProfile";
 const CHANGE_PASSWORD = "/changePassword";
+const USER_DETAIL = "/:id";  //:를 사용함으로 값이 변함을 인식
 
 // Videos
 const VIDEOS = "/videos";
@@ -26,9 +26,9 @@ const routes = {
     logout: LOGOUT,
     search: SEARCH,
     users: USERS,
-    userDetail: USER_DETAIL,
     editProfile: EDIT_PROFILE,
     changePassword: CHANGE_PASSWORD,
+    userDetail: USER_DETAIL,
     videos: VIDEOS,
     upload: UPLOAD,
     videosDetail: VIDEOS_DETAIL,
