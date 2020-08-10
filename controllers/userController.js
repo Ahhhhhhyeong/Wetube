@@ -14,13 +14,19 @@ export const postJoin= (req, res) => {
     }
 };
 
-
 export const getJoin = (req, res) => {
     res.render("join", { pageTitle: "JOIN" });
 };
 
 
-export const login = (req, res) => res.render("login", { pageTitle: "LOGIN" });
+export const getLogin = (req, res) => {
+    res.render("login", {pageTitle: "LogIn"});
+};
+export const postLogin = (req, res) => {
+    //  res.render("login", {pageTitle: "LogIn"});
+    res.redirect(routes.home);
+};
+
 export const logout = (req, res) => res.render("logout", { pageTitle: "LOGOUT" });
 export const users = (req, res) => res.render("users", { pageTitle: "USERS" });
 export const userDetail = (req, res) => res.render("userDetail", { pageTitle: "USER DETAIL" });
