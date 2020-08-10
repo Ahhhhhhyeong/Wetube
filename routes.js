@@ -29,9 +29,9 @@ const routes = {
     editProfile: EDIT_PROFILE,
     changePassword: CHANGE_PASSWORD,
     userDetail: (id) => {
-        if(id){
+        if(id) {
             return `/users/${id}`;
-        }else{
+        } else {
             return USER_DETAIL;
         }
     },
