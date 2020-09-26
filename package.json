@@ -11,8 +11,13 @@
     "autoprefixer": "^10.0.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
-    "css-loader": "^4.3.0",
+    "css-loader": "^1.0.1",
     "dotenv": "^8.2.0",
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "express": "^4.17.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "helmet": "^3.23.3",
@@ -21,7 +26,7 @@
     "multer": "^1.4.2",
     "postcss-loader": "^4.0.2",
     "pug": "^3.0.0",
-    "webpack": "^4.44.2",
+    "webpack": "^4.36.1",
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
@@ -31,15 +36,11 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
-    "eslint": "^7.9.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-prettier": "^3.1.4",
     "mini-css-extract-plugin": "^0.11.2",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.4",
+    "postcss": "^8.0.9",
     "prettier": "^2.1.2",
-    "sass-loader": "^10.0.2"
+    "sass-loader": "^7.1.0"
   }
 }
