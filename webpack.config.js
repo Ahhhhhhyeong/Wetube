@@ -1,6 +1,6 @@
 const path = require("path");
 const autoprefixer = require("autoprefixer");
-const ExtractCSS = require("extract-text-webpack-plugin");
+const ExtractCSS = require("mini-css-extract-plugin");
 
 const MODE = process.env.WEBPACK_ENV;
 const ENTRY_FILE = path.resolve(__dirname, "assets", "js", "main.js");
@@ -20,9 +20,9 @@ const config = {
                     {   // Compiled EX
                         loader: "postcss-loader",
                         options: {
-                            plugin() {
-                                return [autoprefixer({browsers: "cover 99.5%"})];
-                            }
+                          plugin() {
+                            return [autoprefixer({ browsers: "cover 99.5%" })];
+                          }
                         }
                     },
                     {
