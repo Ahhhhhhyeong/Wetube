@@ -1,0 +1,22 @@
+.social-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+    button {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        &:not(:last-child){
+            margin-bottom: 10px;
+        }
+    }
+    .social-login-facebook {
+        i {
+            color: #4267B2;
+        }
+    }
+    i {
+        margin-right: 3px;
+    }    
+}
