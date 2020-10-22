@@ -26,6 +26,7 @@ input {
   font-size: 14px;
   color: $black;
   font-weight: 600;
+  cursor: pointer;
   &::placeholder {
     font-weight: 300;
   }
