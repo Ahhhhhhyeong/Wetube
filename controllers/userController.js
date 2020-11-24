@@ -2,6 +2,7 @@ import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
 
+
 export const getJoin = (req, res) => {
     res.render("join", { pageTitle: "JOIN" });
 };
@@ -39,10 +40,9 @@ export const postLogin = passport.authenticate("local", {
 export const githubLogin = passport.authenticate('github');
 
 export const githubLoginCallback = async (_, __, profile, cb) => {
-  const { 
-    _json: { id, avater_url: avaterUrl, name, email } 
+  const {_json: { id, avater_url: avaterUrl, name, email } 
   } = profile;
-  try{
+try{
     const user = await User.findOne({email});
     if(user){
       user.githubId = id;
@@ -51,14 +51,14 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
       console.log(user);
       return cb(null, user);
     }
-      const newUser = await User.create({
-        email,
-        name,
-        githubId: id,
-        avaterUrl
-      });
-      return cb(null, newUser);
-  }catch(error){
+    const newUser = await User.create({
+      email,
+      name,
+      githubId: id,
+      avaterUrl
+    });
+    return cb(null, newUser);    
+  } catch(error) {
     return cb(error);
   }
 };
