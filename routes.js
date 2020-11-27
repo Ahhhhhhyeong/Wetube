@@ -10,7 +10,7 @@ const USERS = "/users";
 const EDIT_PROFILE = "/editProfile";
 const CHANGE_PASSWORD = "/changePassword";
 const USER_DETAIL = "/:id";  //:를 사용함으로 값이 변함을 인식
-const Me= "/me";
+const ME= "/me";
 
 // Videos
 const VIDEOS = "/videos";
@@ -65,7 +65,8 @@ const routes = {
         }
     },
     gitHub: GITHUB,
-    githubCallback: GITHUB_CALLBACK
+    githubCallback: GITHUB_CALLBACK,
+    me: ME
 };
 
 export default routes;
