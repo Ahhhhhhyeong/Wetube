@@ -1,4 +1,6 @@
 import passport from "passport";
+import request from "request";
+import undefsafe from "undefsafe";
 import routes from "../routes";
 import User from "../models/User";
 
@@ -40,13 +42,13 @@ export const postLogin = passport.authenticate("local", {
 export const githubLogin = passport.authenticate('github');
 
 export const githubLoginCallback = async (_, __, profile, cb) => {
-  const {_json: { id, avater_url: avaterUrl, name, email } 
+  const {
+    _json: { id, avatar_url, name, email }
   } = profile;
-try{
-    const user = await User.findOne({email});
-    if(user){
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
       user.githubId = id;
-      user.avaterUrl = avaterUrl;
       user.save();
       console.log(user);
       return cb(null, user);
@@ -55,10 +57,10 @@ try{
       email,
       name,
       githubId: id,
-      avaterUrl
+      avatarUrl: avatar_url
     });
-    return cb(null, newUser);    
-  } catch(error) {
+    return cb(null, newUser);
+  } catch (error) {
     return cb(error);
   }
 };

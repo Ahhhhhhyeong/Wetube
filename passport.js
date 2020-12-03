@@ -13,10 +13,13 @@ passport.use(new GithubStrategy({
    }, githubLoginCallback
  ));
 
- passport.serializeUser(function (user, done) {
-    done(null, user);
-    });
-    
-    passport.deserializeUser(function (user, done) {
-    done(null, user);
-    });
+ passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    done(err, user);
+  });
+});
+
+passport.authenticate('github', { scope: [ 'user:email' ] })
