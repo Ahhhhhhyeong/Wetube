@@ -23,6 +23,8 @@ const DELETE_VIDEO = "/:id/delete";
 const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
 
+//FaceBook
+//covid19로 개인인증이 안됨
 
 const routes = {
     home: HOME,
