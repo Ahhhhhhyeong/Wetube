@@ -26,6 +26,10 @@ const GITHUB_CALLBACK = "/auth/github/callback";
 //FaceBook
 //covid19로 개인인증이 안됨
 
+//Google
+const GOOGLE = "/auth/google";
+const GOOGLE_CALLBACK = "/auth/google/callback";
+
 const routes = {
     home: HOME,
     join: JOIN,
@@ -58,7 +62,7 @@ const routes = {
             return EDIT_VIDEO;
         }
     },
-    deleteVideo: (id) => {
+    deleteVideo:(id) => {
         if(id){
             return `/videos/${id}/delete`;
         }
@@ -68,7 +72,9 @@ const routes = {
     },
     gitHub: GITHUB,
     githubCallback: GITHUB_CALLBACK,
-    me: ME
+    me: ME,
+    google: GOOGLE,
+    googleCallback: GOOGLE_CALLBACK
 };
 
 export default routes;

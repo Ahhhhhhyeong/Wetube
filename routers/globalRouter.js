@@ -10,7 +10,8 @@ import {
     postLogin, 
     githubLogin, 
     postGithubLogIn, 
-    getMe } from "../controllers/userController";
+    getMe, 
+    googleLogin} from "../controllers/userController";
 import { onlyPrivate, onlyPublic } from "../middlewares";
 
 const globalRouter = express.Router();
@@ -33,5 +34,11 @@ globalRouter.get(routes.githubCallback,
  );
 
 globalRouter.get(routes.me, getMe );
+
+globalRouter.get(routes.google, googleLogin);
+globalRouter.get(routes.googleCallback, 
+    passport.authenticate("google", {failureRedirect: "/login"}),
+    postGithubLogIn
+    );
 
 export default globalRouter;

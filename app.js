@@ -19,9 +19,10 @@ const app = express();
 
 const CokieStore = MongoStore(session);
 
-app.use(helmet({
+app.use(
+  helmet({
     contentSecurityPolicy: false,
-   })
+  })
 );
 app.set('view engine', 'pug');
 app.use("/uploads", express.static("uploads"));
