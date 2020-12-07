@@ -48,16 +48,17 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
     if (user) {
       user.githubId = id;
       user.save();
-      //console.log(user);
+      console.log(user);
       return cb(null, user);
-    }
-    const newUser = await User.create({
+    } else{
+      const newUser = await User.create({
       email,
       name,
       githubId: id,
       avatarUrl
     });
-    return cb(null, newUser);
+    return cb(null, newUser);}
+    
   } catch (error) {
     return cb(error);
   }
@@ -70,7 +71,7 @@ export const postGithubLogIn = (req, res) => {
 
 export const googleLogin = passport.authenticate('google', { scope: ['email','profile'] });
 
-export const googleLoginCallback = async (accessToken, refreshToken, profile, cb) => {
+export const googleLoginCallback = async (_, __, profile, cb) => {
   const {
     _json: {email, name, avatarUrl, googleId}
   } = profile;
@@ -82,14 +83,14 @@ export const googleLoginCallback = async (accessToken, refreshToken, profile, cb
       user.save();
      console.log(user);
       return cb(null, user);
-    }
-    const newUser = await User.create({
+    } else {
+      const newUser = await User.create({
       email,
       name,
       picture: avatarUrl,
       sub: googleId
     });
-    return cb(null, newUser);
+    return cb(null, newUser);}
   } catch(error) {
     return cb(error);
   }
