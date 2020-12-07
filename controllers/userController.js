@@ -47,6 +47,7 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
     const user = await User.findOne({ email });
     if (user) {
       user.githubId = id;
+      user.avatarUrl = avatarUrl;
       user.save();
       console.log(user);
       return cb(null, user);
@@ -58,7 +59,7 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
       avatarUrl
     });
     return cb(null, newUser);}
-    
+
   } catch (error) {
     return cb(error);
   }
@@ -73,13 +74,13 @@ export const googleLogin = passport.authenticate('google', { scope: ['email','pr
 
 export const googleLoginCallback = async (_, __, profile, cb) => {
   const {
-    _json: {email, name, avatarUrl, googleId}
+    _json: {email, name, picture, sub}
   } = profile;
   try{
     const user = await User.findOne({ email });
     if(user){
-      user.sub = googleId;
-      user.picture = avatarUrl;
+      user.googleId = sub;
+      user.avatarUrl = picture;
       user.save();
      console.log(user);
       return cb(null, user);
@@ -87,10 +88,10 @@ export const googleLoginCallback = async (_, __, profile, cb) => {
       const newUser = await User.create({
       email,
       name,
-      picture: avatarUrl,
-      sub: googleId
+      avatarUrl: picture,
+      googleId: sub
     });
-    return cb(null, newUser);}
+    return cb(null, newUser); }
   } catch(error) {
     return cb(error);
   }
