@@ -49,7 +49,7 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
       user.githubId = id;
       user.avatarUrl = avatarUrl;
       user.save();
-      console.log(user);
+     // console.log(user);
       return cb(null, user);
     } else{
       const newUser = await User.create({
@@ -82,7 +82,7 @@ export const googleLoginCallback = async (_, __, profile, cb) => {
       user.googleId = sub;
       user.avatarUrl = picture;
       user.save();
-     console.log(user);
+     //console.log(user);
       return cb(null, user);
     } else {
       const newUser = await User.create({
