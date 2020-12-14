@@ -2,10 +2,11 @@ extends layout/main.pug
 
 block content
     .form-container
-        form(action=routes.editProfile, method="post")
-            label(for="avatar") Avatar
-            input(type="file", id="avater", name="avater")
-            input(type="text", placeholder="Name", name="name")
-            input(type="email", placeholder="email", name="email")
+        form(action=routes.editProfile, method="post", enctype="multipart/form-data")
+            .fileUpload
+                label(for="avatar") Avatar
+                input(type="file", id="avater", name="avater", accept="image/*")
+            input(type="text", placeholder="Name", name="name", value=loggedUser.name)
+            input(type="email", placeholder="email", name="email", value=loggedUser.email)
             input(type="submit", value="Update Profile")
         
