@@ -121,8 +121,8 @@ export const userDetail = async (req, res) => {
 }
 
 export const getEditProfile = (req, res) => {
+  //console.log(req.user._id);
   res.render("editProfile", { pageTitle: "EDIT PROFILE" });
-  //console.log(req.user);
 }
 export const postEditProfile = async(req, res) =>  {
   const {
