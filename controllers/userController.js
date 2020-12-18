@@ -125,6 +125,7 @@ export const getEditProfile = (req, res) => {
   res.render("editProfile", { pageTitle: "EDIT PROFILE" });
 }
 export const postEditProfile = async(req, res) =>  {
+  console.log("1");
   const {
     body: {name, email},
     file
