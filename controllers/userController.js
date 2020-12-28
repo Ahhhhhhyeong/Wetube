@@ -106,17 +106,24 @@ export const logout = (req, res) => {
     res.redirect(routes.home);
 };
 
-export const getMe = (req, res) => {
-  res.render("userDetail", { pageTitle: "USER DETAIL", user: req.user });
+export const getMe = async (req, res) => {
+  try{
+    const user = await User.findById(req.user.id).populate("videos");
+    res.render("userDetail", { pageTitle: "USER DETAIL", user});
+  } catch(error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
 }
 
 export const userDetail = async (req, res) => {
   const { params: { id } } = req;
   try{
-    const user = await User.findById(id).populated("videos");
-    console.log(user);
+    const user = await User.findById(id).populate("videos");
+    //console.log(user);
     res.render("userDetail", {pageTitle: "User Detail", user});
-  } catch(error) {
+  } catch(error){
+    console.log(error);
     res.redirect(routes.home);
   }
 }
@@ -133,7 +140,7 @@ export const postEditProfile = async(req, res) =>  {
     await User.findByIdAndUpdate(req.user._id, {
       name,
       email,
-      avatarUrl:file ? file.path : req.user.avatarUrl
+      avatarUrl: file ? file.path : req.user.avatarUrl
     });
     res.redirect(routes.me);
   } catch(error) {
